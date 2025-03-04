@@ -1,11 +1,33 @@
 import axios from "axios";
 
+const API_TOKEN = "66e6eb0564a29cd9e507d71efd5bce7f1f40609b"; // ここに取得したトークンを入れる
+const CACHE_DURATION = 60 * 1000; // 1分キャッシュ
+let cachedArticles: { [key: string]: any[] } = {};
+let lastFetchTime: { [key: string]: number } = {};
+
 export async function fetchArticles(username: string) {
+  const now = Date.now();
+
+  if (
+    cachedArticles[username] &&
+    now - lastFetchTime[username] < CACHE_DURATION
+  ) {
+    console.log(`キャッシュから ${username} の記事を取得`);
+    return cachedArticles[username];
+  }
+
   try {
     const response = await axios.get(
-      `https://qiita.com/api/v2/items?query=user:${username}`
+      `https://qiita.com/api/v2/items?query=user:${username}`,
+      {
+        headers: { Authorization: `Bearer ${API_TOKEN}` },
+      }
     );
-    return response.data.slice(0, 12);
+
+    cachedArticles[username] = response.data.slice(0, 4);
+    lastFetchTime[username] = now;
+
+    return cachedArticles[username];
   } catch (error) {
     console.error("自分の記事の取得に失敗しました", error);
     return [];
