@@ -25,7 +25,7 @@ export const processContentInDir = async <T extends object, K>(
   const files = await fs.readdir(dir + `/src/pages/${contentType}`);
   const markdownFiles = files
     .filter((file: string) => file.endsWith(".md"))
-    .map((file) => file.split(".")[0]);
+    .map(file => file.split(".")[0]);
   const readMdFileContent = async (file: string) => {
     if (contentType === "projects") {
       const content = import.meta

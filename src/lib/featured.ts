@@ -4,7 +4,7 @@ import { getShortDescription, processContentInDir } from "./utils";
 export const featuredProjects = (
   await processContentInDir<ProjectFrontmatter, ProjectFrontmatter>(
     "projects",
-    (data) => {
+    data => {
       const shortDescription = getShortDescription(
         data.frontmatter.description
       );
@@ -21,7 +21,7 @@ export const featuredProjects = (
     }
   )
 )
-  .filter((project) => project.featured)
+  .filter(project => project.featured)
   .sort((a, b) => {
     const dateA = new Date(a.timestamp);
     const dateB = new Date(b.timestamp);
