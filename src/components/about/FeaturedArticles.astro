@@ -1,18 +1,18 @@
 ---
 import type { ArticleType } from "../../lib/types";
-import { fetchArticles } from '../../lib/fetchArticles.ts';
+import { fetchArticles } from "../../lib/fetchArticles.ts";
 import ArticleSnippet from "../ArticleSnippet.astro";
 
-const username = 'marl0401';
+const username = "marl0401";
 const articles = await fetchArticles(username);
-
 ---
 
 <section>
   <h2>Qiita記事</h2>
   <ul>
-    {articles.map((article:ArticleType) => (
-      <li>
+    {
+      articles.map((article: ArticleType) => (
+        <li>
           <ArticleSnippet
             title={article.title}
             description={article.description}
@@ -20,7 +20,7 @@ const articles = await fetchArticles(username);
             timestamp={article.created_at}
           />
         </li>
-      )
-    )}
+      ))
+    }
   </ul>
 </section>

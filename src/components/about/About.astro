@@ -1,0 +1,31 @@
+---
+import { GLOBAL } from "../../lib/variables";
+---
+
+<div class="flex flex-col items-center sm:flex-row gap-8">
+  <img
+    src=`${GLOBAL.profileImage}`
+    class="rounded-full max-w-40 w-40 h-40 mb-4 z-0"
+  />
+  <div>
+    <h1
+      class="text-3xl sm:text-4xl font-display font-semibold opsz text-center sm:text-left"
+    >
+      {GLOBAL.username}<span class="text-xl sm:text-2xl"
+        >/{GLOBAL.userEnglishname}</span
+      >
+    </h1>
+    <p
+      class="mt-2 text-center text-xl sm:text-2xl font-mono font-medium sm:text-left"
+    >
+      Dev(開発)デザイナー
+    </p>
+  </div>
+</div>
+<p class="mt-4">
+  株式会社エイチームライフデザインに所属。<br />
+  Web制作会社でマークアップエンジニアとしての経験を積んだ後、Devデザイナーとして自社サービスのマークアップやフロントエンド開発を担当しています。<br
+  />
+  会社では、プロダクトの品質向上や制作フローの効率化を担っています。<br
+  />開発スキルを高め、サービスを通じて成果を生み出せるプロダクトエンジニアとして成長していきたいと考えています。
+</p>
