@@ -3,7 +3,10 @@ import { GLOBAL } from "../../lib/variables";
 import Layout from "../../layouts/Layout.astro";
 import ArticleSnippet from "../../components/ArticleSnippet.astro";
 import Section from "../../components/common/Section.astro";
-import { articles } from "../../lib/list";
+import { fetchArticles } from "../../lib/fetchArticles";
+
+const username = 'marl0401';
+const articles = await fetchArticles(username);
 
 ---
 
@@ -38,14 +41,13 @@ import { articles } from "../../lib/list";
     </div>
     <ul>
       {
-        articles.map((project) => (
+        articles.map((article) => (
           <li>
             <ArticleSnippet
-              title={project.title}
-              description={project.description}
-              duration={`${project.time} min`}
-              url={project.filename}
-              timestamp={project.timestamp}
+              title={article.title}
+              description={article.description}
+              url={article.url}
+              timestamp={article.created_at}
             />
           </li>
         ))
