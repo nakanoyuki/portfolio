@@ -1,5 +1,6 @@
 ---
-import { featuredArticles, featuredProjects } from "../lib/featured";
+import { featuredProjects } from "../lib/featured";
+import { fetchArticles } from '../lib/fetchArticles.ts';
 import { GLOBAL } from "../lib/variables";
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/home/Hero.astro";
@@ -46,6 +47,6 @@ import FeaturedArticles from "../components/home/FeaturedArticles.astro";
     <FeaturedProjects featuredProjects={featuredProjects} />
   </Section>
   <Section>
-    <FeaturedArticles featuredArticles={featuredArticles} />
+    <FeaturedArticles fetchArticles={fetchArticles} />
   </Section>
 </Layout>
