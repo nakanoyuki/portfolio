@@ -1,7 +1,7 @@
 {
-  "cSpell.words": [
-    "Frontmatter",
-    "opsz",
-    "Zaggonaut"
-  ]
+  "cSpell.words": ["Frontmatter", "opsz", "Zaggonaut"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
