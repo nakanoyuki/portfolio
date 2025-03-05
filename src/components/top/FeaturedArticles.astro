@@ -8,8 +8,8 @@ const articles = await fetchArticles(username);
 ---
 
 <section>
-  <h2>Qiita記事</h2>
-  <ul>
+  <h2 class="text-2xl">Qiita記事</h2>
+  <ul class="mt-2">
     {
       articles.map((article: ArticleType) => (
         <li>
