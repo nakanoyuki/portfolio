@@ -2,8 +2,7 @@
 
 export const GLOBAL = {
   // Site metadata
-  username: "中野 由貴",
-  userEnglishname: "NAKANO YUKI",
+  username: "NAKANO YUKI",
   rootUrl: "https://zaggonaut.dev",
   shortDescription: "中野 由貴のポートフォリオサイト",
   longDescription:
@@ -38,8 +37,8 @@ export const GLOBAL = {
 
   // Menu items
   menu: {
-    about: "/",
-    projects: "/projects",
-    blog: "/blog",
+    top: "/",
+    profile: "/profile",
+    articles: "/articles",
   },
 };

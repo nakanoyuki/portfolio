@@ -67,7 +67,7 @@ everywhere the username is used will be replaced with your username.
 ```typescript
 export const GLOBAL = {
   // Site metadata
-  username: "zaggonaut-fan123",
+  username: "NAKANO YUKI",
 
   // ...
 
@@ -76,9 +76,9 @@ export const GLOBAL = {
 
   // Menu items
   menu: {
-    about: "/",
-    projects: "/projects",
-    blog: "/blog",
+    top: "/",
+    profile: "/profile",
+    articles: "/articles",
   },
 };
 ```
