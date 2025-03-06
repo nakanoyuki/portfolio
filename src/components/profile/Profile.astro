@@ -1,5 +1,10 @@
 ---
-
+import myDog from "../../images/dog.jpg";
+import cook1 from "../../images/cook1.jpg";
+import cook2 from "../../images/cook2.jpg";
+import cook3 from "../../images/cook3.jpg";
+import cook4 from "../../images/cook4.jpg";
+import dance from "../../images/dance.jpg";
 ---
 
 <div>
@@ -48,6 +53,13 @@
   現在は、フロントエンド開発のスキルをさらに向上させるとともに、事業の成長に貢献できる開発に携わり、自身の取り組みがより成果につながる環境を求めて転職活動を進めている。
 </p>
 <h2 id="skill" class="text-xl sm:text-2xl mt-4 scroll-mt-20">できること</h2>
+<p class="mt-2">
+  -
+  複数のWebサービスやサイト制作の経験を活かし、プロジェクト概要や開発環境を素早く理解・適応<br
+  />
+  - 仕様確認を徹底し、スピードと品質を両立した開発を実施<br />
+  - チーム内で役割を理解し、適切なコミュニケーションを通じてプロジェクトを円滑に進行
+</p>
 <h2 id="ideal" class="text-xl sm:text-2xl mt-4 scroll-mt-20">
   どんな会社/人/チームの中で働きたいか
 </h2>
@@ -109,9 +121,55 @@
 
 <h2 id="hobby" class="text-xl sm:text-2xl mt-4 scroll-mt-20">趣味</h2>
 <p class="mt-2">実家でほぼ毎日晩ごはんを作っています。</p>
+<div class="flex flex-wrap mt-2">
+  <div class="w-1/2 p-1">
+    <img
+      src={cook1.src}
+      width={cook1.width}
+      height={cook1.height}
+      class="w-full"
+    />
+  </div>
+  <div class="w-1/2 p-1">
+    <img
+      src={cook2.src}
+      width={cook2.width}
+      height={cook2.height}
+      class="w-full"
+    />
+  </div>
+  <div class="w-1/2 p-1">
+    <img
+      src={cook3.src}
+      width={cook3.width}
+      height={cook3.height}
+      class="w-full"
+    />
+  </div>
+  <div class="w-1/2 p-1">
+    <img
+      src={cook4.src}
+      width={cook4.width}
+      height={cook4.height}
+      class="w-full"
+    />
+  </div>
+</div>
 <p class="mt-2">
   高校生の時に創作ダンス部に入っており、社会人になってからもダンスを習い事で1年間習ってました。発表会の時の写真(2024.6)
 </p>
+<img
+  src={dance.src}
+  width={dance.width}
+  height={dance.height}
+  class="w-80 mt-2"
+/>
 <p class="mt-2">
-  愛犬との散歩が日課です。17才ですが元気です。今は少額の寄付くらいしかできないですが、将来は保護犬のボランティア活動に携わりたいとずっと思ってます。
+  愛犬との散歩が日課です。17才ですが元気です。今は少額の寄付くらいしかできないですが、将来は保護犬を支援する活動に携わりたいと思ってます。
 </p>
+<img
+  src={myDog.src}
+  width={myDog.width}
+  height={myDog.height}
+  class="w-50 mt-2"
+/>
