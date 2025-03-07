@@ -4,48 +4,54 @@ import Layout from "../../layouts/Layout.astro";
 import ArticleSnippet from "../../components/ArticleSnippet.astro";
 import Section from "../../components/common/Section.astro";
 import { fetchArticles } from "../../lib/fetchArticles";
+import type { ArticleType } from "../../lib/types";
 
-const username = 'marl0401';
+const username = "marl0401";
 const articles = await fetchArticles(username);
-
+const getSortarticles = articles.sort((a, b) => b.likes_count - a.likes_count);
 ---
 
 <Layout>
   <Fragment slot="head">
     <title>{GLOBAL.blogTitle} • {GLOBAL.username}</title>
+    <meta name="description" content={GLOBAL.blogLongDescription} />
     <meta
-      name="description"
-      content={GLOBAL.blogLongDescription}
+      property="og:title"
+      content={`${GLOBAL.blogTitle} • ${GLOBAL.username}`}
     />
-    <meta property="og:title" content={`${GLOBAL.blogTitle} • ${GLOBAL.username}`} />
+    <meta property="og:description" content={GLOBAL.blogShortDescription} />
     <meta
-      property="og:description"
-      content={GLOBAL.blogShortDescription}
+      property="og:image"
+      content={`${GLOBAL.rootUrl}/${GLOBAL.profileImage}`}
     />
-    <meta property="og:image" content={`${GLOBAL.rootUrl}/${GLOBAL.profileImage}`} />
     <meta property="og:url" content={`${GLOBAL.rootUrl}/blog`} />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${GLOBAL.blogTitle} • ${GLOBAL.username}`} />
     <meta
-      name="twitter:description"
-      content={GLOBAL.blogShortDescription}
+      name="twitter:title"
+      content={`${GLOBAL.blogTitle} • ${GLOBAL.username}`}
     />
-    <meta name="twitter:image" content={`${GLOBAL.rootUrl}/${GLOBAL.profileImage}`} />
+    <meta name="twitter:description" content={GLOBAL.blogShortDescription} />
+    <meta
+      name="twitter:image"
+      content={`${GLOBAL.rootUrl}/${GLOBAL.profileImage}`}
+    />
     <meta http-equiv="content-language" content="en" />
     <meta name="language" content="English" />
     <link rel="canonical" href={`${GLOBAL.rootUrl}/blog`} />
   </Fragment>
   <Section class="my-8">
-    <div class="flex items-center gap-4 pt-8 pb-16">
-      <h1 class="font-display text-3xl sm:text-4xl leading-loose">{GLOBAL.articlesName}</h1>
+    <div class="flex items-center gap-4 pt-8">
+      <h1 class="font-display text-3xl sm:text-4xl leading-loose">
+        {GLOBAL.articlesName}
+      </h1>
     </div>
     <ul>
       {
-        articles.map((article) => (
+        getSortarticles.map((article: ArticleType) => (
           <li>
             <ArticleSnippet
               title={article.title}
-              description={article.description}
+              likes={article.likes_count}
               url={article.url}
               timestamp={article.created_at}
             />

@@ -2,18 +2,19 @@
 import { processArticleDate } from "../lib/utils";
 import Anchor from "./common/Anchor.astro";
 
-const { title, description, url, timestamp } = Astro.props;
+const { title, url, likes, timestamp } = Astro.props;
 ---
+
 <div class="zag-text zag-transition flex flex-col gap-3 pb-8">
   <Anchor url={url} class="text-xl">
     {title}
   </Anchor>
-  <p class="">
-    {description}
-  </p>
-  <div
-    class="zag-muted zag-transition flex justify-between items-center"
-  >
-    {timestamp ? <p>{processArticleDate(timestamp)}</p> : null}  
+  <div class="flex">
+    <div
+      class="mr-4 zag-muted zag-transition flex justify-between items-center"
+    >
+      {timestamp ? <p>{processArticleDate(timestamp)}</p> : null}
+    </div>
+    <p class="zag-muted">♡{likes}</p>
   </div>
 </div>

@@ -1,21 +1,25 @@
 ---
+import { GLOBAL } from "../../lib/variables";
 import type { ArticleType } from "../../lib/types";
 import { fetchArticles } from "../../lib/fetchArticles.ts";
 import ArticleSnippet from "../ArticleSnippet.astro";
 
 const username = "marl0401";
 const articles = await fetchArticles(username);
+const getTopArticles = articles
+  .sort((a, b) => b.likes_count - a.likes_count)
+  .slice(0, 4);
 ---
 
 <section>
-  <h2 class="text-2xl">Qiita記事</h2>
+  <h2 class="text-2xl">{GLOBAL.articlesName}</h2>
   <ul class="mt-2">
     {
-      articles.map((article: ArticleType) => (
+      getTopArticles.map((article: ArticleType) => (
         <li>
           <ArticleSnippet
             title={article.title}
-            description={article.description}
+            likes={article.likes_count}
             url={article.url}
             timestamp={article.created_at}
           />
