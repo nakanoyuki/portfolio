@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_TOKEN = "66e6eb0564a29cd9e507d71efd5bce7f1f40609b"; // ここに取得したトークンを入れる
-const CACHE_DURATION = 60 * 1000; // 1分キャッシュ
+const API_TOKEN = "66e6eb0564a29cd9e507d71efd5bce7f1f40609b";
+const CACHE_DURATION = 60 * 1000;
 let cachedArticles: { [key: string]: any[] } = {};
 let lastFetchTime: { [key: string]: number } = {};
 
@@ -24,7 +24,7 @@ export async function fetchArticles(username: string) {
       }
     );
 
-    cachedArticles[username] = response.data.slice(0, 4);
+    cachedArticles[username] = response.data;
     lastFetchTime[username] = now;
 
     return cachedArticles[username];
