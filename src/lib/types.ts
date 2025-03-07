@@ -46,7 +46,7 @@ export type ProjectFrontmatter = {
 export type ArticleType = {
   id: number;
   title: string;
-  description: string;
+  likes_count: string;
   url: string;
   likes: string;
   created_at: string;
