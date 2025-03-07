@@ -12,8 +12,7 @@ export const GLOBAL = {
   githubProfile: "https://github.com/nakanoyuki",
 
   // Common text names used throughout the site
-  articlesName: "Articles",
-  projectsName: "Projects",
+  articlesName: "Qiita記事",
   viewAll: "View All",
 
   // Common descriptions used throughout the site
