@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import Analytics from '@vercel/analytics/astro'
 import "../styles/global.css";
 ---
 
@@ -17,6 +18,7 @@ import "../styles/global.css";
       rel="stylesheet"
     />
     <slot name="head" />
+    <Analytics/>
   </head>
   <body class="zag-bg zag-text zag-transition font-mono">
     <Header />
